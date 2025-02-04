@@ -5,6 +5,8 @@ const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
 const UserModel = require("../models/User.model")
 const { upload } = require("../utils/upload")
+const cloudinary = require("cloudinary").v2
+
 cloudinary.config({
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET,
