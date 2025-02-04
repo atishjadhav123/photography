@@ -7,9 +7,9 @@ const productStorage = multer.diskStorage({
         const fileName = `${Date.now()}${fileExtension}`
         cb(null, fileName)
     },
-    destination: (req, file, cb) => {
-        cb(null, "uploads")
-    },
+    // destination: (req, file, cb) => {
+    //     cb(null, "uploads")
+    // },
 })
 
 const serviceStorage = multer.diskStorage({
@@ -18,10 +18,10 @@ const serviceStorage = multer.diskStorage({
         const fileName = `${Date.now()}${fileExtension}`
         cb(null, fileName)
     },
-    destination: (req, file, cb) => {
-        cb(null, path.join(__dirname, 'uploads'))
-    },
+    // destination: (req, file, cb) => {
+    //     cb(null, path.join(__dirname, 'uploads'))
+    // },
 })
 
 exports.upload = multer({ storage: productStorage }).single('profilePicture')
-exports.uploadServiceImages = multer({ dest: 'uploads/' }).array('image', 5)
+exports.uploadServiceImages = multer().array('image', 5)
